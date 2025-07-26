@@ -1,0 +1,5 @@
+alert tcp any any -> any 22 (msg:"SSH Brute Force attempt"; flow:to_server,established; flags:S; detection_filter:track by_src, count 10, seconds 30; sid:1000001; rev:1;)
+alert tcp any any -> any any (msg:"Possible SYN Flood attack"; flags:S; threshold:type both, track by_src, count 100, seconds 10; sid:1000003; rev:1;)
+alert http any any -> any any (msg:"Slowloris Attack Detected"; content:"User-Agent"; http_header; threshold:type both, track by_src, count 20, seconds 10; sid:1000004; rev:1;)
+alert tcp any any -> any any (msg:"Potential DDoS SYN Flood Detected"; flags:S; threshold:type both, track by_src, count 50, seconds 10; sid:1000010; rev:1;)
+alert tcp any any -> any 1883 (msg:"Malformed JSON Detected"; lua:!malformed_json.lua; sid:1234556; rev:1;)
