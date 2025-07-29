@@ -25,7 +25,7 @@ This project collects temperature sensor data via MQTT, detects network threats 
 Sensor → MQTT → Suricata IDS → Filebeat → Logstash → Elasticsearch → Kibana
 
 ## 🛠️ Setup Instructions
-See [`docs/setup_guide.md`] for full installation and configuration steps.
+See CYT160_Final_Project_Assignment-Group8.pdf for full installation and configuration steps.
 
 ## 🔒 Suricata Custom Rules
 - SSH Brute Force
